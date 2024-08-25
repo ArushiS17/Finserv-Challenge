@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= process.env.ROLL_NUMBER %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BFHL Challenge</h1>
+        <form action="/submit" method="POST">
+            <label for="jsonInput">Input JSON:</label>
+            <textarea name="jsonInput" id="jsonInput" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <% if (result) { %>
+        <h2>Response:</h2>
+        <pre><%= JSON.stringify(result, null, 2) %></pre>
+        <% } %>
+        <% if (error) { %>
+        <p class="error"><%= error %></p>
+        <% } %>
+    </div>
+</body>
+</html>
